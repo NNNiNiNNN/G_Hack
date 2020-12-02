@@ -30,7 +30,7 @@ firebase deploy
 で作ったページの埋め込みができる。
 これで準備は完了なので、HTMLファイルをいじる。
 ### 実装
-以下のようなおまじないをHTML内の</style>と</head>の間に書く。
+以下のようなおまじないをHTML内の/styleと/headの間に書く。
 ```html
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
