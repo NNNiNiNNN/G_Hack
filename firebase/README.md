@@ -81,4 +81,4 @@ var button = document.getElementById("button");
 button.style.top = (y - height / 2) + "px";
 button.style.left = (x - width / 2) + "px";
 ```
-ここまででわからないことはhttps://github.com/NNNiNiNNN/G_Hack/edit/main/firebaseのソースコードを参考にしてください。それ以上はまだ未検証です。
+ここまででわからないことはhttps://github.com/NNNiNiNNN/G_Hack/edit/main/firebase のソースコードを参考にしてください。それ以上はまだ未検証です。
