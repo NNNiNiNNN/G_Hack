@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Firebase Hosting</title>
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/8.1.1/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/8.1.1/firebase-auth.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-database.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-firestore.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-functions.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-storage.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-analytics.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-remote-config.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-performance.js"></script>
+  <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+  <style media="screen">
+    body {
+      background: #ECEFF1;
+      color: rgba(0, 0, 0, 0.87);
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #message {
+      background: white;
+      max-width: 360px;
+      margin: 100px auto 16px;
+      padding: 32px 24px;
+      border-radius: 3px;
+    }
+
+    #message h2 {
+      color: #ffa100;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 0 0 8px;
+    }
+
+    #message h1 {
+      font-size: 22px;
+      font-weight: 300;
+      color: rgba(0, 0, 0, 0.6);
+      margin: 0 0 16px;
+    }
+
+    #message p {
+      line-height: 140%;
+      margin: 16px 0 24px;
+      font-size: 14px;
+    }
+
+    #message a {
+      display: block;
+      text-align: center;
+      background: #039be5;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: white;
+      padding: 16px;
+      border-radius: 4px;
+    }
+
+    #message,
+    #message a {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    #load {
+      color: rgba(0, 0, 0, 0.4);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+
+      body,
+      #message {
+        margin-top: 0;
+        background: white;
+        box-shadow: none;
+      }
+
+      body {
+        border-top: 16px solid #ffa100;
+      }
+    }
+  </style>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyALYb-gpwW_8i8HyA9cXAMKBynobmDBV4I",
+    authDomain: "g-hack-project.firebaseapp.com",
+    databaseURL: "https://g-hack-project.firebaseio.com",
+    projectId: "g-hack-project",
+    storageBucket: "g-hack-project.appspot.com",
+    messagingSenderId: "82020781735",
+    appId: "1:82020781735:web:e2feed88dfa4cb7e171582"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+</head>
+
+<body>
+  <div id="message">
+    <ul>
+      <li id="chatText">文字を入力してください</li>
+      <input type="text" name="" id="my_text">
+      <a onclick="changeData()">文字変更</a>
+      <div id='app'>
+        <img src="b.png" id="obake" style="position: absolute;" width="80px">
+      </div>
+    </ul>
+  </div>
+
+
+  <script>
+    // データベースの定義
+    var db = firebase.database();
+
+
+    // 文字変更テスト
+    var myChatAll = db.ref("/my/chat/all");
+
+    function changeData() {
+      var text = document.getElementById("my_text").value;
+      myChatAll.set({ title: "example", text: text });
+    }
+    // myChatAllの値変更時に起動？
+    myChatAll.on("value", function (snapshot) {
+      document.getElementById("chatText").innerText = snapshot.val().text;
+    });
+
+    // ドラッグ位置共有テスト    
+    let x = 1;
+    let y = 1;
+    var pos1 = db.ref("/pos_1");
+    let height = 100;
+    let width = 100;
+    var obake = document.getElementById("obake");
+    x = pos1.x;
+    y = pos1.y;
+    obake.style.top = (y - height / 2) + "px";
+    obake.style.left = (x - width / 2) + "px";
+
+
+    obake.onmousedown = function (event) {
+      document.addEventListener("mousemove", onMouseMove);
+    }
+    var onMouseMove = function (event) {
+      var x = event.clientX;
+      var y = event.clientY;
+      pos1.set({ x: x, y: y });
+      obake.style.top = (y - height / 2) + "px";
+      obake.style.left = (x - width / 2) + "px";
+    }
+    obake.onmouseup = function (event) {
+      x = event.clientX;
+      y = event.clientY;
+      document.removeEventListener("mousemove", onMouseMove);
+    }
+      pos1.on("value", function (snapshot) {
+      x = snapshot.val().x;
+      y = snapshot.val().y;
+      obake.style.top = (y - height / 2) + "px";
+      obake.style.left = (x - width / 2) + "px";
+    });
+
+
+    // 距離計算に使うやつ
+    let getDistance = (x1, y1, x2, y2) =>
+    {
+      return Math.sqrt( Math.pow( x2-x1, 2 ) + Math.pow( y2-y1, 2 ) ) ;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+
+    <title>新規会員登録</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheet2.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-left">
+        <img class="logo" src="F3.jpg">
+      </div>
+      <div class="header-right">
+        <a href="#" class="login"></a>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+<script>
+jQuery(document).ready(function() {
+var offset = 100;
+var duration = 500;
+jQuery(window).scroll(function() {
+if (jQuery(this).scrollTop() > offset) {
+jQuery('.pagetop').fadeIn(duration);
+} else {
+jQuery('.pagetop').fadeOut(duration);
+}
+});
+
+jQuery('.pagetop').click(function(event) {
+event.preventDefault();
+jQuery('html, body').animate({scrollTop: 0}, duration);
+return false;
+})
+});
+</script>
+
+</header>
+    <div class="container">
+
+           <div class="row">
+                    <h1>新規会員の登録</h1>
+            </div>
+
+    </div>
+
+    <hr class="bar">
+
+    <div class="container">
+        <form action="＃" method="get" class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+              <hr>
+                <div><span class="new1">新規会員の登録          必須項目※</span></div>
+                <br>
+                <div class="form-group">
+                    <label for="name"><span class="label label-danger">※</span> お名前</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="例：なっとう　ネバ男" autofocus required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><span class="label label-danger">※</span> メールアドレス</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="例：natto@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><span class="label label-danger">※</span> パスワード</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="例：I_love_natto" required>
+                </div>
+                <div class="form-group">
+                    <label for="tel"><span class="label label-danger">※</span> 電話番号</label>
+                    <input type="tel" id="tel" name="tel" class="form-control" placeholder="例：090-####-####" required>
+                </div>
+                <div class="form-group">
+                    <label><span class="label label-danger">※</span> 性別</label>
+                    <div>
+                        <label class="radio-inline">
+                            <input type="radio" name="male" value="1" required>男性
+                        </label>
+
+                        <label class="radio-inline">
+                            <input type="radio" name="female" value="2" required>女性
+                        </label>
+
+                        <label class="radio-inline">
+                            <input type="radio" name="not applicable" value="9" required>その他
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="job"><span class="label label-success">※</span> あなたの職業</label>
+                    <select id="job" name="job" class="form-control">
+                       <option value="">選択してください</option>
+                        <option value="J1">高校生</option>
+                        <option value="J2">浪人生</option>
+                        <option value="J3">大学生</option>
+                        <option value="J4">就活生</option>
+                        <option value="J5">社会人</option>
+                        <option value="その他">その他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><span class="label label-success">任意</span> あなたの好きな料理について（複数選択可）</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="q1_html" name="q1" value="デザイン">餃子
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="q1_html" name="q1" value="プログラミング">チャーハン
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="q1_html" name="q1" value="マーケティング">天津飯
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="q1_html" name="q1" value="バナナ">キムチ
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">送信する</button>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <footer>
+            <p>&copy; チーム：なっとうず</p>
+        </footer>
+    </div>
+</body>
+</html>
