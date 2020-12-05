@@ -2,15 +2,43 @@
 // ドラッグが終わったらサーバーへ位置情報を送信
 
 function myUserUpdate(my_user) {
+  
   var my_avatar = document.getElementById("my_avatar");
-  my_avatar.src = my_user.image;
-
+  var my_avatar_img = document.getElementById("my_avatar_img");
+  var my_avatar_name = document.getElementById("my_avatar_name");
+  my_avatar_img.src = my_user.image;
+  my_avatar_name.innerText = my_user.name;
+  
   let currentDroppable = null;
 
-  my_avatar.onmousedown = function(event) {
+  my_user.position.left = my_avatar.style.left + 'px';
+  my_user.position.top = my_avatar.style.top + 'px';
+  db.ref('/users/'+my_user.name).set(my_user);
+  /*
+  var my_avatar = document.createElement("div");
+  var my_avatar_img = document.createElement("img");
+  var my_avatar_name = document.createElement("div");
+  my_avatar.setAttribute("id",my_user.name);
+  my_avatar_img.setAttribute("id",my_user.name+"_img");
+  my_avatar_name.setAttribute("id",my_user.name+"_name");
+  my_avatar_img.setAttribute("src",my_user.image);
+  my_avatar_name.innerText = my_user.name;
+  my_avatar_name.style.color= "black";
+  my_avatar.style.position = "absolute";
+  my_avatar.style.left = my_user.position.left;
+  my_avatar.style.top = my_user.position.top;
+  my_avatar.setAttribute("width","100px");
+  my_avatar.appendChild(my_avatar_img);
+  my_avatar.appendChild(newImy_avatar_namemg_name);
 
+  divmain.appendChild(my_avatar);
+  */
+  my_avatar_img.onmousedown = function(event) {
+    console.log(my_avatar);
     let shiftX = event.clientX - my_avatar.getBoundingClientRect().left;
     let shiftY = event.clientY - my_avatar.getBoundingClientRect().top;
+    //let shiftX = event.clientX;
+    //let shiftY = event.clientY;
 
     my_avatar.style.position = 'absolute';
     my_avatar.style.zIndex = 1000;
@@ -38,7 +66,7 @@ function myUserUpdate(my_user) {
 
     document.addEventListener('mousemove', onMouseMove);
 
-    my_avatar.onmouseup = function() {
+    my_avatar_img.onmouseup = function() {
       document.removeEventListener('mousemove', onMouseMove);
       my_avatar.onmouseup = null;
     };
@@ -46,7 +74,7 @@ function myUserUpdate(my_user) {
   };
 
 
-  my_avatar.ondragstart = function() {
+  my_avatar_img.ondragstart = function() {
     console.log("ondragstart");
     return false;
   };
@@ -62,7 +90,6 @@ let getDistance = (x1, y1, x2, y2) => {
 }
 let DistanceToVolume = (distance) => 
 {
-  return 1;
     theta1 = 200;
     theta2 = 400;
    if(distance < theta1)
@@ -74,4 +101,28 @@ let DistanceToVolume = (distance) =>
    } else {
      return 0;
    }
+}
+let DistanceToSize = (distance) => 
+{
+    defaultSize = 100;
+    
+    max = 1.5;
+    min = 0.8;
+    theta1 = 200;
+    theta2 = 400;
+   if(distance < theta1)
+   {
+     return max * defaultSize;
+   }
+   else if (distance < theta2) {
+     return (min + (max-min) * (theta2-distance)/(theta2-theta1)) * defaultSize;
+   } else {
+     return min * defaultSize;
+   }
+}
+
+let getHeightByWidth = (originH, originW, width) =>
+{
+  let k = originH/originW;
+  return width * k;
 }

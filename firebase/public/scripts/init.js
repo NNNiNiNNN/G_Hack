@@ -2,6 +2,7 @@
 
 var db = firebase.database();
 var room_id = "1";
+// 読み込み時にこの辺の値を設定してほしい
 var my_user = { name: "default_name", pwd: "password", room_id: room_id, image: "default.png", position: { left: "500px", top: "50px" } };
 
 
@@ -25,82 +26,92 @@ db.ref('/users/'+obake_user.name).set(obake_user);
 let localStream = null;
 let peer = null;
 let existingCall = null;
-var isCallOk = false;
-var isCallOk2 = false;
 
 const remoteVideos = document.getElementById('js-remote-streams');
 
 
 navigator.mediaDevices.getUserMedia({ video: false, audio: true })
-    .then(function (stream) {
-        // Success
-        $('#my-video').get(0).srcObject = stream;
-        localStream = stream;
-        call();
-    }).catch(function (error) {
-        // Error
-        console.error('mediaDevice.getUserMedia() error:', error);
-        return;
-    });
+  .then(function (stream) {
+    // Success
+    $('#my-video').get(0).srcObject = stream;
+    localStream = stream;
+    call();
+  }).catch(function (error) {
+    // Error
+    console.error('mediaDevice.getUserMedia() error:', error);
+    return;
+  });
 
 peer = new Peer({
-    key: 'a9093d62-394d-4ddf-8094-03566ed2f485',
-    debug: 3
-})
+  key: 'a9093d62-394d-4ddf-8094-03566ed2f485',
+  debug: 3
+});
 var roomId = room_id;
 
-call = () =>
-{
-    const room = peer.joinRoom(roomId, {
-        mode: "mesh",// sfuに切り替える必要？
-        stream: localStream,
-      });
-      my_user['peer_id'] = peer.id;
-      peerId = peer.id;
-      room.once('open', () => {
-        console.log(peerId +  ": opened");
-      });
-      room.on('peerJoin', peerId => {
-        console.log(peerId +  ": joined");
-      });
-    
-      // Render remote stream for new peer join in the room
-      room.on('stream', async stream => {
-        const newVideo = document.createElement('video');
-        newVideo.srcObject = stream;
-        newVideo.setAttribute("id", stream.peerId);
-        newVideo.playsInline = true;
-        // mark peerId to find it later at peerLeave event
-        newVideo.setAttribute('data-peer-id', stream.peerId);
-        remoteVideos.append(newVideo); // elementを設定する
-        await newVideo.play().catch(console.error);
-      });
-    // データの更新があった時
-      room.on('data', ({ data, src }) => {
-        console.log(`${src}: ${data}`);
-      });
-    
-      // for closing room members
-      room.on('peerLeave', peerId => {
-        const remoteVideo = remoteVideos.querySelector(
-          `[data-peer-id="${peerId}"]`
-        );
-        remoteVideo.srcObject.getTracks().forEach(track => track.stop());
-        remoteVideo.srcObject = null;
-        remoteVideo.remove();
-    
-        console.log(`=== ${peerId} left ===`);
-      });
-    
-      // for closing myself
-      room.once('close', () => {
-        Array.from(remoteVideos.children).forEach(remoteVideo => {
-          remoteVideo.srcObject.getTracks().forEach(track => track.stop());
-          remoteVideo.srcObject = null;
-          remoteVideo.remove();
-        });
-      });
-    
+//isNotCall = true;
+isNotCall = false;
+setInterval(() => {
+  if (isNotCall) {
+     call();
+    }
+}, 1000);
+
+call = () => {
+  const room = peer.joinRoom(roomId, {
+    mode: "mesh",// sfuに切り替える必要？
+    stream: localStream,
+  });
+  my_user['peer_id'] = peer.id;
+  console.log(peer.id);
+  peerId = peer.id;
+  room.once('open', () => {
+    console.log(peerId + ": opened");
+  });
+  room.on('peerJoin', peerId => {
+    console.log(peerId + ": joined");
+  });
+
+  // Render remote stream for new peer join in the room
+  room.on('stream', async stream => {
+    console.log(stream.peerId + ": setStream");
+    const newVideo = document.createElement('video');
+    newVideo.srcObject = stream;
+    newVideo.volume = 0;
+    newVideo.setAttribute("id", stream.peerId);
+    newVideo.playsInline = true;
+    // mark peerId to find it later at peerLeave event
+    newVideo.setAttribute('data-peer-id', stream.peerId);
+    remoteVideos.append(newVideo); // elementを設定する
+    await newVideo.play().catch(console.error);
+  });
+  // データの更新があった時
+  room.on('data', ({ data, src }) => {
+    console.log(`${src}: ${data}`);
+  });
+
+  // for closing room members
+  room.on('peerLeave', peerId => {
+    const remoteVideo = remoteVideos.querySelector(
+      `[data-peer-id="${peerId}"]`
+    );
+    remoteVideo.srcObject.getTracks().forEach(track => track.stop());
+    remoteVideo.srcObject = null;
+    remoteVideo.remove();
+
+    console.log(`=== ${peerId} left ===`);
+  });
+
+  // for closing myself
+  room.once('close', () => {
+    Array.from(remoteVideos.children).forEach(remoteVideo => {
+      remoteVideo.srcObject.getTracks().forEach(track => track.stop());
+      remoteVideo.srcObject = null;
+      remoteVideo.remove();
+    });
+  });
+  isNotCall = false;
+
+
 }
 
 
@@ -111,7 +122,7 @@ call = () =>
 
 
 /*
-  
+
 peer.on('open', function () {
     my_user['peer_id'] = peer.id;
     isCallOk = true;
