@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="CSS/index.css">
+  <title>Welcome to Firebase Hosting</title>
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/8.1.1/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/8.1.1/firebase-auth.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-database.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-firestore.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-functions.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-storage.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-analytics.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-remote-config.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-performance.js"></script>
+  <!-- initialize the SDK after all desired features are loaded, set useEmulator to false to avoid connecting the SDK to running emulators.-->
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <!-- 自分のサーバー環境を設定 -->
+  <script src="scripts/firebase.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="header-left">
+        <a href="index.html">
+          <img class="logo" src="fig/TeamG.jpg">
+        </a>
+      </div>
+      <div class="header-right">
+        <a href="#" class="login"></a>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+  </header>
+  <div class="top-wrapper">
+    <div class="container">
+      <h1>We Need to Communicate Each Other</h1>
+      <h1>Thank you for cominG our Website</h1>
+      <p>富士通ハックザフューチャーteamG</p>
+      <p>このサイトを見てもらい、このサイトについて知ってもらいたです。</p>
+      <div class="btn-wrapper">
+        <!-- <a href="#"  onclick="location.href='create.html'" class="btn newmenber">新規登録</a> -->
+        <!-- <a href="#" onclick="location.href='login.html'" class="btn login1">ログイン</a> -->
+        <a href="create.html" class="btn newmenber">新規登録</a>
+        <a href="login.html" class="btn login1">ログイン</a>
+        <p>try to touch this botton!</p>
+
+      </div>
+
+      <div class="colona">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h1>このコロナ禍で</h1>
+        <h1>人とコミュニケーションをする機会が減った方々が</h1>
+        <h1>共通の目的を持つ人々と</h1>
+        <h1>楽しい時間を過ごせてもらえたら幸いです。</h1>
+      </div>
+
+    </div>
+  </div>
+  <div class="lesson-wrapper">
+    <div class="container">
+      <div class="heading">
+        <h2></h2>
+      </div>
+      <div class="lessons">
+        <div class="lesson">
+          <div class="lesson-icon">
+            <img src="">
+            <div class="characteR">機能１</div>
+          </div>
+          <p class="txt-contents">会員登録</p>
+        </div>
+        <div class="lesson">
+          <div class="lesson-icon">
+            <img src="">
+            <div class="characteR">機能２</div>
+          </div>
+          <p class="txt-contents">バーコード（ISBN)を読みとることでその話題に知見がある人がいるコミュニティに参加</p>
+        </div>
+        <div class="lesson">
+          <div class="lesson-icon">
+            <img src="">
+            <div class="characteR">機能３</div>
+          </div>
+          <p class="txt-contents">アバタを用いて話しやすい環境を提供</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <!-- <img src=> -->
+      <ul class="name">
+        <li>HACK THE FUTURE</li>
+        <li>TEAM G</li>
+        <li>なっとうず</li>
+        <li>2</li>
+      </ul>
+
+    </div>
+    <form action="http://formspree.io/8117048@ed.tus.ac.jp" class="form1" method="post">
+      <p>
+        名前：<input type="email" name="_replyto" size="40">
+      </p>
+      <p>
+        ご用件：<br>
+        <textarea name="body" rows="4" cols="40"></textarea>
+      </p>
+      <p>
+        <input type="submit" value="Send" class="sendplace">
+      </p>
+    </form>
+
+  </footer>
+  <div class="pagetop">↑</div>
+
+  <script src="scripts/base.js"></script>
+</body>
+</html>

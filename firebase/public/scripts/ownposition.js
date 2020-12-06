@@ -107,6 +107,7 @@ let DistanceToSize = (distance) =>
     defaultSize = 100;
     
     max = 1.5;
+    max_2 = 1.4;
     min = 0.8;
     theta1 = 200;
     theta2 = 400;
@@ -115,7 +116,7 @@ let DistanceToSize = (distance) =>
      return max * defaultSize;
    }
    else if (distance < theta2) {
-     return (min + (max-min) * (theta2-distance)/(theta2-theta1)) * defaultSize;
+     return (min + (max_2-min) * (theta2-distance)/(theta2-theta1)) * defaultSize;
    } else {
      return min * defaultSize;
    }

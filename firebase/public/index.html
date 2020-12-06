@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="stylesheet16.css">
+  <link rel="stylesheet" id="viewport_pizza" href="stylesheet16.css">
   <title>Welcome to Firebase Hosting</title>
 
   <!-- update the version number as needed -->
@@ -51,55 +51,128 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 <!-- ここからが内容 -->
 
 <body>
-  <header class="top-wrapper">
 
-    <div id="main">
-      <p id="distance"></p>
-      <div id="my_avatar" style="position: absolute; z-index: 1000;">
-        <img src="default.png" id="my_avatar_img"  width="100px">
-        <div id="my_avatar_name" style="color: black; padding:2em; text-align:center;"></div>
+  <div id="pre">
+    <header>
+      <div class="container">
+        <div class="header-left">
+          <img class="logo" src="F13.jpg">
+        </div>
+        <div class="header-right">
+          <a href="#" class="login"></a>
+        </div>
       </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+      <script>
+        jQuery(document).ready(function () {
+          var offset = 100;
+          var duration = 500;
+          jQuery(window).scroll(function () {
+            if (jQuery(this).scrollTop() > offset) {
+              jQuery('.pagetop').fadeIn(duration);
+            } else {
+              jQuery('.pagetop').fadeOut(duration);
+            }
+          });
+
+          jQuery('.pagetop').click(function (event) {
+            event.preventDefault();
+            jQuery('html, body').animate({ scrollTop: 0 }, duration);
+            return false;
+          })
+        });
+      </script>
+
+    </header>
+    <div class="container">
+
+      <div class="row">
+        <h1>入室フォーム</h1>
+      </div>
+
     </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <hr class="bar">
 
-    <div class="pure-u-2-3" id="video-container">
-      <video id="my-video" muted="true" autoplay></video>
+    <div class="container">
+      <!-- <form action="https://g-hack-project.firebaseio.com" method="get" class="row"> -->
+      <div class="col-sm-8 col-sm-offset-2">
+        <hr>
+        <div><span class="new1">入室 必須項目※</span></div>
+        <br>
+        <div class="form-group">
+          <label for="name"><span class="label label-danger">※</span> お名前</label>
+          <input type="text" id="user_id" class="form-control" placeholder="例：なっとう　ネバ男">
+        </div>
+        <div class="form-group">
+          <label for="email"><span class="label label-danger">※</span> 部屋ID</label>
+          <input type="id" id="room_id" name="email" class="form-control" placeholder="例：1234567891011">
+        </div>
+
+      </div>
+
+
+
+
+
     </div>
-  </header>
+    <!-- <button type="submit" class="btn btn-primary">送信する</button> -->
+    <button id="button_send" onClick="button_clicked()" class="btn btn-primary">送信する</button>
 
 
 
+    <hr>
 
-
-
-  <div class="remote-streams" id="js-remote-streams"></div>
-  <!-- <button id="button_call", onclick="call()">通話</button> -->
-
-  <input type="text" id="name" class="form-control" placeholder="例：なっとう　ネバ男">
-  <button id="button">送信する</button>
-
-  <div>
-
-    <a target="_blank" href="https://www.moeruavatar.com"> アバターの作成 </a>
+    <div class="container">
+      <footer>
+        <p>&copy; チーム：なっとうず</p>
+      </footer>
+    </div>
   </div>
 
-  <div id="target" style="border: solid 5px #ccc; padding:2em; text-align:center; width:100px;">
-    ここに画像ファイルをドロップします。
+  <div id="all">
+    <header class="top-wrapper">
+
+      <div id="main">
+        <p id="distance"></p>
+        <div id="my_avatar" style="position: absolute; z-index: 1000;">
+          <img src="default.png" id="my_avatar_img" width="100px">
+          <div id="my_avatar_name" style="color: black; padding:2em; text-align:center;"></div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="pure-u-2-3" id="video-container">
+          <video id="my-video" muted="true" autoplay></video>
+        </div>
+    </header>
+
+    <div class="remote-streams" id="js-remote-streams"></div>
+    <!--
+    <input type="text" id="name" class="form-control" placeholder="例：なっとう　ネバ男">
+    <button id="button">送信する</button>
+    -->
+    <div>
+      <a target="_blank" href="https://www.moeruavatar.com"> アバターの作成 </a>
+    </div>
+    <div id="target" style="border: solid 5px #ccc; padding:2em; text-align:center; width:100px;">
+      ここに画像ファイルをドロップします。
+    </div>
+
+
   </div>
-
-  <!-- JavaScriptを分離させている -->
-  <script src="scripts/init.js"></script>
-  <script src="scripts/image_drop.js"></script>
-  <script src="scripts/positionpoling.js"></script>
-  <script src="scripts/ownposition.js"></script>
-  <script src="scripts/input.js"></script>
-
 </body>
+<!-- JavaScriptを分離させている -->
+<script src="scripts/init.js"></script>
+<script src="scripts/image_drop.js"></script>
+<script src="scripts/positionpoling.js"></script>
+<script src="scripts/ownposition.js"></script>
+<script src="scripts/input.js"></script>
 
 </html>
