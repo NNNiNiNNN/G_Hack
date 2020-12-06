@@ -1,3 +1,1 @@
-# G_Hack
-
-Gチームのレポジトリ
+# https://g-hack-project.web.app/
