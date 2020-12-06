@@ -9,7 +9,7 @@
 const divmain = document.getElementById("main");
 
 db.ref('/users').on("value", function (snapshot) {
-  try{
+  
     var users = snapshot.val();
     Object.keys(users).forEach(function (key) {
       var user = users[key];
@@ -106,11 +106,7 @@ db.ref('/users').on("value", function (snapshot) {
         }
       }
     });
-  }
-  catch
-  {
-    
-  }
+
 
 });
 

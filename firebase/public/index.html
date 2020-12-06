@@ -1,178 +1,124 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="jp">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" id="viewport_pizza" href="stylesheet16.css">
+  <link rel="stylesheet" href="CSS/index.css">
   <title>Welcome to Firebase Hosting</title>
 
-  <!-- update the version number as needed -->
-  <script defer src="/__/firebase/8.1.1/firebase-app.js"></script>
-  <!-- include only the Firebase features as you need -->
-  <script defer src="/__/firebase/8.1.1/firebase-auth.js"></script>
-  <script defer src="/__/firebase/8.1.1/firebase-database.js"></script>
-  <script defer src="/__/firebase/8.1.1/firebase-firestore.js"></script>
-  <script defer src="/__/firebase/8.1.1/firebase-functions.js"></script>
-  <script defer src="/__/firebase/8.1.1/firebase-messaging.js"></script>
-  <script defer src="/__/firebase/8.1.1/firebase-storage.js"></script>
-  <script defer src="/__/firebase/8.1.1/firebase-analytics.js"></script>
-  <script defer src="/__/firebase/8.1.1/firebase-remote-config.js"></script>
-  <script defer src="/__/firebase/8.1.1/firebase-performance.js"></script>
-  <!--
-  initialize the SDK after all desired features are loaded, set useEmulator to false
-  to avoid connecting the SDK to running emulators.
--->
-  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-  <!-- Firebaseでデフォルトで設定されているCSS -->
-  <style media="screen" src="CSS/firebase.css"></style>
-
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 
   <!-- TODO: Add SDKs for Firebase products that you want to use
-https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+  https://firebase.google.com/docs/web/setup#available-libraries -->
 
   <!-- 自分のサーバー環境を設定 -->
-  <script src="scripts/firebase.js"></script>
-  <!-- <script src="scripts/firebase_G_hack.js"></script> -->
-
-  <!-- skyway関係 -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
-
 </head>
 
-
-<!-- ここからが内容 -->
-
 <body>
-
-  <div id="pre">
-    <header>
-      <div class="container">
-        <div class="header-left">
-          <img class="logo" src="F13.jpg">
-        </div>
-        <div class="header-right">
-          <a href="#" class="login"></a>
-        </div>
-      </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-
-      <script>
-        jQuery(document).ready(function () {
-          var offset = 100;
-          var duration = 500;
-          jQuery(window).scroll(function () {
-            if (jQuery(this).scrollTop() > offset) {
-              jQuery('.pagetop').fadeIn(duration);
-            } else {
-              jQuery('.pagetop').fadeOut(duration);
-            }
-          });
-
-          jQuery('.pagetop').click(function (event) {
-            event.preventDefault();
-            jQuery('html, body').animate({ scrollTop: 0 }, duration);
-            return false;
-          })
-        });
-      </script>
-
-    </header>
+  <header>
     <div class="container">
-
-      <div class="row">
-        <h1>入室フォーム</h1>
+      <div class="header-left">
+        <a href="index.html">
+          <img class="logo" src="fig/TeamG.jpg">
+        </a>
       </div>
-
+      <div class="header-right">
+        <a href="#" class="login"></a>
+      </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
-    <hr class="bar">
-
+  </header>
+  <div class="top-wrapper">
     <div class="container">
-      <!-- <form action="https://g-hack-project.firebaseio.com" method="get" class="row"> -->
-      <div class="col-sm-8 col-sm-offset-2">
-        <hr>
-        <div><span class="new1">入室 必須項目※</span></div>
+      <h1>We Need to Communicate Each Other</h1>
+      <h1>Thank you for cominG our Website</h1>
+      <p>富士通ハックザフューチャーteamG</p>
+      <p>このサイトを見てもらい、このサイトについて知ってもらいたです。</p>
+      <div class="btn-wrapper">
+        <!-- <a href="#"  onclick="location.href='create.html'" class="btn newmenber">新規登録</a> -->
+        <!-- <a href="#" onclick="location.href='login.html'" class="btn login1">ログイン</a> -->
+        <a href="chat.html" class="btn login1">開始</a>
+        <p>try to touch this botton!</p>
+
+      </div>
+
+      <div class="colona">
         <br>
-        <div class="form-group">
-          <label for="name"><span class="label label-danger">※</span> お名前</label>
-          <input type="text" id="user_id" class="form-control" placeholder="例：なっとう　ネバ男">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h1>このコロナ禍で</h1>
+        <h1>人とコミュニケーションをする機会が減った方々が</h1>
+        <h1>共通の目的を持つ人々と</h1>
+        <h1>楽しい時間を過ごせてもらえたら幸いです。</h1>
+      </div>
+
+    </div>
+  </div>
+  <div class="lesson-wrapper">
+    <div class="container">
+      <div class="heading">
+        <h2></h2>
+      </div>
+      <div class="lessons">
+        <div class="lesson">
+          <div class="lesson-icon">
+            <img src="">
+            <div class="characteR">機能１</div>
+          </div>
+          <p class="txt-contents">会員登録</p>
         </div>
-        <div class="form-group">
-          <label for="email"><span class="label label-danger">※</span> 部屋ID</label>
-          <input type="id" id="room_id" name="email" class="form-control" placeholder="例：1234567891011">
+        <div class="lesson">
+          <div class="lesson-icon">
+            <img src="">
+            <div class="characteR">機能２</div>
+          </div>
+          <p class="txt-contents">バーコード（ISBN)を読みとることでその話題に知見がある人がいるコミュニティに参加</p>
+        </div>
+        <div class="lesson">
+          <div class="lesson-icon">
+            <img src="">
+            <div class="characteR">機能３</div>
+          </div>
+          <p class="txt-contents">アバタを用いて話しやすい環境を提供</p>
         </div>
 
       </div>
-
-
-
-
-
-    </div>
-    <!-- <button type="submit" class="btn btn-primary">送信する</button> -->
-    <button id="button_send" onClick="button_clicked()" class="btn btn-primary">送信する</button>
-
-
-
-    <hr>
-
-    <div class="container">
-      <footer>
-        <p>&copy; チーム：なっとうず</p>
-      </footer>
     </div>
   </div>
 
-  <div id="all">
-    <header class="top-wrapper">
+  <footer>
+    <div class="container">
+      <!-- <img src=> -->
+      <ul class="name">
+        <li>HACK THE FUTURE</li>
+        <li>TEAM G</li>
+        <li>なっとうず</li>
+        <li>2</li>
+      </ul>
 
-      <div id="main">
-        <p id="distance"></p>
-        <div id="my_avatar" style="position: absolute; z-index: 1000;">
-          <img src="default.png" id="my_avatar_img" width="100px">
-          <div id="my_avatar_name" style="color: black; padding:2em; text-align:center;"></div>
-        </div>
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <div class="pure-u-2-3" id="video-container">
-          <video id="my-video" muted="true" autoplay></video>
-        </div>
-    </header>
-
-    <div class="remote-streams" id="js-remote-streams"></div>
-    <!--
-    <input type="text" id="name" class="form-control" placeholder="例：なっとう　ネバ男">
-    <button id="button">送信する</button>
-    -->
-    <div>
-      <a target="_blank" href="https://www.moeruavatar.com"> アバターの作成 </a>
     </div>
-    <div id="target" style="border: solid 5px #ccc; padding:2em; text-align:center; width:100px;">
-      ここに画像ファイルをドロップします。
-    </div>
+    <form action="http://formspree.io/8117048@ed.tus.ac.jp" class="form1" method="post">
+      <p>
+        名前：<input type="email" name="_replyto" size="40">
+      </p>
+      <p>
+        ご用件：<br>
+        <textarea name="body" rows="4" cols="40"></textarea>
+      </p>
+      <p>
+        <input type="submit" value="Send" class="sendplace">
+      </p>
+    </form>
 
+  </footer>
+  <div class="pagetop">↑</div>
 
-  </div>
+  <script src="scripts/base.js"></script>
 </body>
-<!-- JavaScriptを分離させている -->
-<script src="scripts/init.js"></script>
-<script src="scripts/image_drop.js"></script>
-<script src="scripts/positionpoling.js"></script>
-<script src="scripts/ownposition.js"></script>
-<script src="scripts/input.js"></script>
-
 </html>
