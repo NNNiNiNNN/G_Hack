@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS/create.css">
+  <title>新規会員登録</title>
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/8.1.1/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/8.1.1/firebase-auth.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-database.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-firestore.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-functions.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-storage.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-analytics.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-remote-config.js"></script>
+  <script defer src="/__/firebase/8.1.1/firebase-performance.js"></script>
+  <!-- initialize the SDK after all desired features are loaded, set useEmulator to false to avoid connecting the SDK to running emulators. -->
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <!-- 自分のサーバー環境を設定 -->
+  <script src="scripts/firebase.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-left">
+        <a href="index.html">
+          <img class="logo" src="fig/TeamG.jpg">
+        </a>
+      </div>
+      <div class="header-right">
+        <a href="#" class="login"></a>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+  </header>
+  <div class="container">
+
+    <div class="row">
+      <h1>新規会員の登録</h1>
+    </div>
+
+  </div>
+
+  <hr class="bar">
+
+  <div class="container">
+    <!-- <form action="https://g-hack-project.firebaseio.com" method="get" class="row"> -->
+    <div class="col-sm-8 col-sm-offset-2">
+      <hr>
+      <div><span class="new1">新規会員の登録 &emsp;&emsp; 必須項目※</span></div>
+      <br>
+      <div class="form-group">
+        <label for="name"><span class="label label-danger">※</span> お名前</label>
+        <input type="text" id="name"  class="form-control" placeholder="例：なっとう　ネバ男" required>
+      </div>
+      <div class="form-group">
+        <label for="email"><span class="label label-danger">※</span> メールアドレス</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="例：natto@gmail.com" required>
+      </div>
+      <div class="form-group">
+        <label for="password"><span class="label label-danger">※</span> パスワード</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="例：I_love_natto" required>
+      </div>
+
+      <div class="form-group">
+        <label for="tel"> 電話番号</label>
+        <input type="tel" id="tel" name="tel" class="form-control" placeholder="例：090-####-####" >
+      </div>
+      <div class="form-group">
+        <label> 性別</label>
+        <div>
+          <label class="radio-inline">
+            <input type="radio" name="male" value="1" >男性
+          </label>
+
+          <label class="radio-inline">
+            <input type="radio" name="female" value="2" >女性
+          </label>
+
+          <label class="radio-inline">
+            <input type="radio" name="not applicable" value="9" >その他
+          </label>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="job"> あなたの職業</label>
+        <select id="job" name="job" class="form-control">
+          <option value="">選択してください</option>
+          <option value="J1">高校生</option>
+          <option value="J2">浪人生</option>
+          <option value="J3">大学生</option>
+          <option value="J4">就活生</option>
+          <option value="J5">社会人</option>
+          <option value="その他">その他</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="job"> 本</label>
+        <select id="job2" name="job2" class="form-control">
+          <option value="">選択してください</option>
+          <option value="J6">鬼滅の刃</option>
+          <option value="J7">進撃の巨人</option>
+          <option value="J8">ワンピース</option>
+          <option value="J9">プリキュア</option>
+          <option value="J10">自己啓発本</option>
+          <option value="その他">その他</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label> あなたの好きな料理について（複数選択可）</label>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="q1_html" name="q1" value="デザイン">餃子
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="q2_html" name="q2" value="プログラミング">チャーハン
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="q3_html" name="q3" value="マーケティング">天津飯
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="q4_html" name="q4" value="バナナ">キムチ
+          </label>
+        </div>
+      </div>
+      <!-- <button type="submit" class="btn btn-primary">送信する</button> -->
+      <button id="button"  class="btn btn-primary">送信する</button>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <footer>
+      <p>&copy; チーム：なっとうず</p>
+    </footer>
+  </div>
+
+  <script src="scripts/base.js"></script>
+  <script src="scripts/create.js"></script>
+</body>
+</html>

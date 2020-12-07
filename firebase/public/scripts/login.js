@@ -49,7 +49,7 @@ button.onclick = function(){
       // }
       // sleep(4000);//4秒スリープ
       // window.alert('ログイン成功')
-      location.href = ('voice.html');
+      location.href = ('chat.html');
     })
     .catch((error) => {
       var errorCode = error.code;
