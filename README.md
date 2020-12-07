@@ -1,3 +1,3 @@
-# G_Hack
+作成したページは以下↓
 
-Gチームのレポジトリ
+# https://g-hack-project.web.app/
